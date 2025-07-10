@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sean's Bday!</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #465b2b;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .postcard-container {
+      height: 95vh; /* More height */
+      width: calc(95vh * 0.75); /* Keep 3:4 ratio */
+      max-height: 900px;
+      max-width: 675px;
+      perspective: 1200px;
+      cursor: pointer;
+    }
+
+    .postcard {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    .postcard.flip {
+      transform: rotateY(180deg);
+    }
+
+    .front, .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .front {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background: url("seanbday.jpg") center center / contain no-repeat;
+      background-color: #384412; /* fallback background for borders */
+    }
+
+    .front audio {
+      width: 100%;
+      background: rgba(56, 68, 18, 0.85);
+    }
+
+    .back {
+      background: #f9e79f;
+      color: #384412;
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 8%;
+      text-align: center;
+    }
+
+    .back h2 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .back p {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      .postcard-container {
+        height: 85vh;
+        width: calc(85vh * 0.75);
+      }
+
+      .back h2 {
+        font-size: 1.5em;
+      }
+
+      .back p {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="postcard-container" onclick="flipCard()">
+  <div class="postcard" id="postcard">
+    <div class="front">
+      <audio controls autoplay>
+        <source src="Somethin' Stupid.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <div class="back">
+      <h2>Happiest Birthday Baby!!!!!!!!</h2>
+      <p>I wasn't sure what to make or give you for your birthday, I promise babawi ako once I get there po. But, for now this is all I can do hehe, It's just a drawing of us and what I think our future would look like with your favorite snacks and favorite dog! You're getting old na but so am I and I genuienly want to spend the rest of my life with you, I love you so so so much and I hope this made your day a litttleee bit better. I'm looking forward to living with you na po and I miss you so so so very much. (lilibre po kita birthday dinner once I'm there na.) I LOVE U SO MUCH! can't wait to meet you po!(I asked chatgpt for help with this code bc I have yet to learn some parts of this I'm sure you know naman hashshshs. Also learning github was so hard po sdbcjhsc)<333 Ikaw ung divel kse special day for a special person :))</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function flipCard() {
+    document.getElementById('postcard').classList.toggle('flip');
+  }
+</script>
+
+</body>
+</html>
